@@ -21,14 +21,18 @@ public static void main(String[] args) {
             El codigo, lo que hace, es tomar un token generado por el bot previamente creado y
             mostrar un mensaje de Pong! cuando le escribamos ¡ping.
             El token generado lo metemos en la variable token para que funcione.
+
+             Token --> OTUzNjMwNzE1MTA5NjA1Mzk2.YjHX0A.BSjxxeVstm5IX1i_3v4aEbucphs
              */
-            final String token = args[0];
+
+
+            final String token = "OTUzNjMwNzE1MTA5NjA1Mzk2.YjHX0A.BSjxxeVstm5IX1i_3v4aEbucphs";
             final DiscordClient client = DiscordClient.create(token);
             final GatewayDiscordClient gateway = client.login().block();
 
             gateway.on(MessageCreateEvent.class).subscribe(event -> {            //genera un nuevo evento, haciendo que el bot haga algo.
                 final Message message = event.getMessage();                      //Coge el mensaje que le hemos proporcionado.
-                if ("!ping".equals(message.getContent())) {                      //Condicion de si el mensaje que le dimos es igual a "¡pong".
+                if ("!ping".equals(message.getContent())) {                      //Condicion de si el mensaje que le dimos es igual a "!ping".
                     final MessageChannel channel = message.getChannel().block(); //Instancia un objeto de tipo MessageChannel.
                     channel.createMessage("Pong!").block();                      //Hace que devuelva "Pong!" si se cumple la condición.
                 }

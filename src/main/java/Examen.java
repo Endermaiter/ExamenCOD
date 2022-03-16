@@ -26,15 +26,15 @@ public static void main(String[] args) {
             final DiscordClient client = DiscordClient.create(token);
             final GatewayDiscordClient gateway = client.login().block();
 
-            gateway.on(MessageCreateEvent.class).subscribe(event -> {
-                final Message message = event.getMessage();
-                if ("!ping".equals(message.getContent())) {
-                    final MessageChannel channel = message.getChannel().block();
-                    channel.createMessage("Pong!").block();
+            gateway.on(MessageCreateEvent.class).subscribe(event -> {            //genera un nuevo evento, haciendo que el bot haga algo.
+                final Message message = event.getMessage();                      //Coge el mensaje que le hemos proporcionado.
+                if ("!ping".equals(message.getContent())) {                      //Condicion de si el mensaje que le dimos es igual a "¡pong".
+                    final MessageChannel channel = message.getChannel().block(); //Instancia un objeto de tipo MessageChannel.
+                    channel.createMessage("Pong!").block();                      //Hace que devuelva "Pong!" si se cumple la condición.
                 }
             });
 
-            gateway.onDisconnect().block();
+            gateway.onDisconnect().block();                                      //desconecta el bot hasta que vuelva a ser llamado
         }
     }
 

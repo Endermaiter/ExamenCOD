@@ -8,7 +8,16 @@ public class Examen {
 
 public static void main(String[] args) {
 
+            /*
+            Creación del Bot y su respectivo token:
 
+            1. Primeramente, vamos al portal de desarrolladores de Discord.
+            2. Iniciamos Sesion.
+            3. Creamos una nueva aplicación de Discord
+            4. Una vez creada, dentro de la app, generamos un nuevo Bot de Discord, accediendo
+               al menu de la izquierda y clickando en "Bot" y posteriormente en "Create Bot".
+            5.En la pagina de editar el bot le damos a Generar Token. Ya tenemos el token.
+             */
             final String token = args[0];
             final DiscordClient client = DiscordClient.create(token);
             final GatewayDiscordClient gateway = client.login().block();

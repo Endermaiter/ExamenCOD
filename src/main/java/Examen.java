@@ -17,6 +17,10 @@ public static void main(String[] args) {
             4. Una vez creada, dentro de la app, generamos un nuevo Bot de Discord, accediendo
                al menu de la izquierda y clickando en "Bot" y posteriormente en "Create Bot".
             5.En la pagina de editar el bot le damos a Generar Token. Ya tenemos el token.
+
+            El codigo, lo que hace, es tomar un token generado por el bot previamente creado y
+            mostrar un mensaje de Pong! cuando le escribamos ¡ping.
+            El token generado lo metemos en la variable token para que funcione.
              */
             final String token = args[0];
             final DiscordClient client = DiscordClient.create(token);
